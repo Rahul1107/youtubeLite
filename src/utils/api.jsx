@@ -4,7 +4,7 @@ export const SEARCH_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/sear
 
 export const VIDEO_DETAILS_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key="+API_KEY+"&id="
 
-export const SEARCH_SUGGESTIONS_API ="http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+export const SEARCH_SUGGESTIONS_API ="https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 
 
 export const SIMILAR_VIDEO_API ="https://www.googleapis.com/youtube/v3/search?regionCode=IN&maxResults=15&part=snippet&type=video&key="+API_KEY+"&relatedToVideoId="
