@@ -21,13 +21,16 @@ const Header = () => {
     const navigate = useNavigate();
     const searchQueryHandler = (event) => {
         if(
-            (event?.key ==="Enter" || event ==="searchButton") && searchQuery?.length>0){
+            (event?.key ==="Enter") && searchQuery?.length>0){
                 navigate(`/searchReasult/${searchQuery}`)
+                setShowSuggestions(false)
             }
     }
-    const searchSuggestionHandler = (event) =>{
-        if( event?.target?.id.length>0){
-            navigate(`/searchReasult/${event.target.id}`)
+    
+
+    const suggestionViewHandler = (event)=>{
+        if(event?.key === 'Enter'){
+            setShowSuggestions(false)
         }
     }
 
@@ -99,12 +102,14 @@ const Header = () => {
             <div id='suggestionElement'className=' mt-1 pl-5 w-[216px] md:ml-10 md:w-[336px] lg:w-[580px]    bg-black/[0.9] text-white rounded-xl fixed'>
         {!searchSuggestions?null:searchSuggestions.map((suggestion)=>{
                 return(
-                <p className='hover:bg-gray-900 cursor-pointer' id={suggestion} onMouseDown={(event)=>{
+                <p className='hover:bg-gray-900 cursor-pointer' id={suggestion} 
+                onMouseDown={(event)=>{
                 searchSuggestionHandler(event)
                 setSearchQuery(suggestion)
                 setSearchSuggestions('')
                 setShowSuggestions(false)
-                }}>{suggestion}</p> 
+                }}
+                >{suggestion}</p> 
             
             )})}
             </div>)}  
